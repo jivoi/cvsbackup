@@ -1,0 +1,28 @@
+#add system user
+cvsbackup:x:6672:6672::/www/cvs:/bin/bash
+
+#create DB in MySQL
+use mysql;update user set password=password('P@ssw0rd') where user='root';
+flush privileges;
+create database lazydog;
+use lazydog;
+
+#create table in DB lazydog
+CREATE TABLE `servers` (
+  `id` int(11) NOT NULL auto_increment,
+  `hostname` varchar(255) default NULL,
+  `hello_date` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `changed` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `active` int(1) default NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=84;
+
+#add grants to MySQL DB
+GRANT USAGE ON *.* TO 'wdog'@'localhost' IDENTIFIED BY 'P@ssw0rd';
+GRANT ALL PRIVILEGES ON `lazydog`.* TO 'wdog'@'localhost';
+
+#create DB for web GUI
+create database viewvc;
+run make-database
+grant all privileges on viewvc.* to viewvc@localhost identified by "P@ssw0rd";
+grant select on viewvc.* to viewvc_read@localhost identified by "P@ssw0rd";

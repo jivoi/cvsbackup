@@ -1,0 +1,3 @@
+server side for cvsbackup
+cvsweb is a web gui
+lazydog is perl-based tool for backuping your files and sending diffs via e-mail

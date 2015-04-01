@@ -1,0 +1,34 @@
+# wdog.pl settings
+debug 10 # debug level
+
+concurent 6 # how many can be run once
+reserve 0 # how many free cells to reserve
+refresh 10 # list freshness
+
+maintainer root@relax.ru # we also notify maintainer
+hello 1 # check hello matches
+helo_ex test.example.com # BROKEN!!!
+log /logs/wdog.log # we log here
+schedlog /logs/lazy_sched.log
+load 10 # local load average, if above we DENY
+
+# db
+# options are transparent
+dbuser wdog
+dbname lazydog
+dbpass P@ssw0rd
+dbhost localhost
+dbport 3306
+
+# server part configures
+# do NOT edit, if dummy
+port 11211
+pid_file /tmp/wdog.pid
+no_close_by_child 1
+min_servers 1
+min_spare_servers 1
+max_spare_servers 1
+max_servers 5
+max_requests 5
+reverse_lookups 1
+background 1
