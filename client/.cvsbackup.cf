@@ -1,0 +1,30 @@
+set cvsroot :ext:cvsbackup@cvsbackup.example.ru/www/cvs
+set cvspath example.example.ru
+set dl1 6
+include_tree /etc
+include_tree /usr/local/etc
+include_tree /var/cron/tabs
+include_tree /root/bin
+include_tree /root/bin/checkdomain/cache
+include_tree /root/.ssh
+include_tree /var/db/ports
+include_glob /boot/loader.conf
+include_tree /usr/local/apache2/conf
+include_tree /usr/local/apache/conf
+include_tree /usr/local/nginx/conf
+include_tree /www/scripts
+include_tree /home/mnt
+exclude_rx ^/etc/pw\.[0-9]+~$
+exclude_rx \.db$
+exclude_rx \.swp$
+exclude_rx ^/usr/local/etc/postfix/prng_exch$
+exclude_rx ^/root/megarc.log$
+exclude_rx ^.*\-dist$
+exclude_rx ^/root/bin/wdog.log$
+exclude_rx ^/root/bin/wdog.log.+$
+exclude_rx ^/home/mnt/\.history$
+exclude_rx ^/home/mnt/\.viminfo$
+exclude_rx ^/home/mnt/\.lesshst$
+exclude_rx ^/home/mnt/cache/
+exclude_rx ^/home/mnt/password.lst
+exclude_rx ^/root/.ssh/cvsbackup_dsa$
